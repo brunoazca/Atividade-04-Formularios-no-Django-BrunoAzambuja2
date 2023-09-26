@@ -1,0 +1,26 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+.coluna{
+  display:flex;
+  width: 26%;
+  flex-direction: column;
+  align-items: center;
+  margin:3%
+}
+.bloco{
+  display:flex;
+  justify-content: center;
+}
+body{
+  font-family: Ubuntu;
+  background-color: #cff2ee;
+}
+h1{
+  font-family: Pacifico;
+}
+h2{
+  font-family: DM Serif Display;
+  justify-content: center;
+}

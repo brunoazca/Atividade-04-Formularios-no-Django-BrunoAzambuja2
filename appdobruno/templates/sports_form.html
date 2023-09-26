@@ -1,0 +1,15 @@
+<html>
+<html>
+<head>
+    <title>Formulário de Esporte</title>
+</head>
+<body>
+    <h1>Formulário de Esporte</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Bruno Azambuja Carvalho</title>
+  <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+  <link href="https://www.cifraclub.com.br/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Minha Página</h1>
+  <p>Meu nome é <b style="color: rgb(100,130,256);background-color:#000040">Bruno Azambuja</b>, tenho <em>18 anos</em> e esou cursando engenharia da compuação na PUC-Rio.</p>
+  <h2 style="text-align: center;">O que eu gosto de fazer?</h2>
+  <div class="bloco">
+    <div class="coluna">
+      <img src={% static 'images/esportes.webp' %} width="400" height="300">
+      <h3 style="text-align: center">Esportes</h3>
+      <p>Desde pequeno, sempre adorei praticar <mark>esportes</mark>. Ao longo do tempo, fui apresenado a diversas modalidades e despertando meu interesse acerca desse assunto. Assim, eu pratico:</p>
+        <!--ul>
+          <i>
+          <li>Futebol</li>
+          <li>Vôlei</li>
+          <li>Tênis</li>
+          <li>Ciclismo</li>
+          </i> 
+    </ul-->
+      <ul>
+        {% for esporte in esportes %}
+          <li>{{esporte.title}}
+            <a href="{% url 'delete_sport' slug=esporte.slug %}">Remover</a>
+            <a href="{% url 'edit_sport' slug=esporte.slug %}">Editar</a>
+          </li>
+        {% endfor %}
+        
+        <a href="{% url 'add_sport' %}">Adicionar esporte</a>
+      </ul>
+    </div>
+    <div class="coluna">
+      <img src={% static 'images/instrumentos.jpg' %} width="400" height="300">
+      <h3>Música</h3>
+      <p>Meu contato com instrumentos musicais começou na época do colégio, quando eu tinha por volta de 10 anos. Tive aulas de <b>flauta</b> na ementa do Ensino Fundamental, e depois comecei a fazer aulas de <b>violão</b>, por cerca de 4 anos. Além disso, também passei a aprender a tocar <b>piano</b> por conta própria. Um dos sites que uso bastante para aprender rápido a tocar novas músicas é o <a href="https://www.cifraclub.com.br/">cifraclub.com.br</a> </p>
+    </div>
+    <div class="coluna">
+      <img src={% static 'images/amigos.webp' %} width="400" height="300">
+      <h3 style="text-align: center">Amigos</h3>
+      <p>Algo que sempre valorizei muito é o tempo que passo meus amigos. Para mim, uma amizade verdadeira não funciona sem que cada um guarde um pedacinho de tempo, mesmo que pequeno, para entrarem em contato. Há uma série de atividades que gosto de praticar com meus amigos, entre elas:</p>
+      <!--ol>
+        <li>Esportes</li>
+        <li>Festas</li>
+        <li>Praia</li>
+        <li>Videogames</li>
+    </ol-->
+      <ol>
+        {% for atividade in atividades %}
+          <li>{{atividade.title}}
+            <a href="{% url 'delete_activity' slug=atividade.slug %}">Remover</a>
+            <a href="{% url 'edit_activity' slug=atividade.slug %}">Editar</a>
+          </li>
+        {% endfor %}
+      </ol>
+        <a href="{% url 'add_activity' %}">Adicionar atividade</a>
+
+    </div>
+  </div>
+    <p style="text-align: center;">Além das atividades curriculares, eu realizo diversas práticas no meu dia-a-dia, como mostra a tabela:</p>
+    <table border="1" style="margin: auto;">
+      <tr>
+          <th>Atividade</th>
+          <th>Local</th>
+      </tr>
+      {% for atividade in rotina %}
+      <tr>
+          <td>{{atividade.title}}</td>
+          <td>{{atividade.place}}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</body>
+
+</html> 

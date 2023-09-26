@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmação de Exclusão</title>
+</head>
+<body>
+    <h1>Confirmação de Exclusão</h1>
+    
+    <p>Tem certeza de que deseja excluir o esporte "{{ sport.title }}"?</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Exclusão</button>
+        <a href="{% url 'home' %}">Cancelar</a>
+    </form>
+</body>
+</html>
