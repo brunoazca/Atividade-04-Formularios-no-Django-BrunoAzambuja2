@@ -18,9 +18,6 @@ from django.urls import path
 from appdobruno import views
 
 urlpatterns = [
- 
-]
-urlpatterns = [
     path("", views.home,name="home"),
     path('admin/', admin.site.urls),
     path('sports/add/', views.add_or_edit_sport, name='add_sport'),
@@ -29,4 +26,4 @@ urlpatterns = [
     path('activities/add/', views.add_or_edit_activity, name='add_activity'),
     path('activities/<slug:slug>/', views.add_or_edit_activity, name='edit_activity'),
     path('activities/<slug:slug>/delete/', views.delete_activity, name='delete_activity'),
-]
+
