@@ -22,6 +22,10 @@
 
 <body>
   <h1>Minha Página</h1>
+  {% if request.user.is_authenticated %}
+    Bem vindo, <b>{{request.user.username}}</b><br>
+    <a href="/users/logout"> Logout </a>
+  {% endif %}
   <p>Meu nome é <b style="color: rgb(100,130,256);background-color:#000040">Bruno Azambuja</b>, tenho <em>18 anos</em> e esou cursando engenharia da compuação na PUC-Rio.</p>
   <h2 style="text-align: center;">O que eu gosto de fazer?</h2>
   <div class="bloco">
@@ -29,14 +33,6 @@
       <img src={% static 'images/esportes.webp' %} width="400" height="300">
       <h3 style="text-align: center">Esportes</h3>
       <p>Desde pequeno, sempre adorei praticar <mark>esportes</mark>. Ao longo do tempo, fui apresenado a diversas modalidades e despertando meu interesse acerca desse assunto. Assim, eu pratico:</p>
-        <!--ul>
-          <i>
-          <li>Futebol</li>
-          <li>Vôlei</li>
-          <li>Tênis</li>
-          <li>Ciclismo</li>
-          </i> 
-    </ul-->
       <ul>
         {% for esporte in esportes %}
           <li>{{esporte.title}}
