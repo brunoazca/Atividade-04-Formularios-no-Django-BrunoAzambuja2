@@ -21,7 +21,7 @@ urlpatterns = [
     path('users/login/', views.login_user, name="login"),
     path('users/logout/', views.logout_user, name="logout"),
     path('users', views.create_user),
-    #path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('django.contrib.auth.urls')),
     path("", views.home,name="home"),
     path('admin/', admin.site.urls),
     path('sports/add/', views.add_or_edit_sport, name='add_sport'),
